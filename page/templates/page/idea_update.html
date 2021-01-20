@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div> Idea Detail Update </div>
+<div> 아이디어 세부내용 수정 페이지 입니다. 아이디어를 구체화하거나 내용을 변경해 보아요. </div>
+<div>
+    <form action="" method="POST" enctype="multipart/form-data" autocomplete="off">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+
+        <input type="submit" value="SUBMIT">
+    </form>
+</div>
+{% endblock %}

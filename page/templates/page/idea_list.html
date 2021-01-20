@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div> Idea List </div>
+<div> 나의 아이디어를 잊지 말고 기록해보세요 </div>
+<br>
+<br>
+
+<div>
+    {% for idea in ideas %}
+        <img src="{{ idea.image.url }}" alt="" style="max-width: 100%;"><br/>
+        <a href="{% url 'page:idea_detail' pk=idea.pk %}">{{ idea.title }}</a>
+        <br>
+        {{ idea.devtool }} <br>
+        <span class="interest">{{ idea.interest }}</span>
+        <button class="plus_btn" type="button">+</button>
+        <button class="minus_btn" type="button">-</button>
+        <br>
+        <hr>
+    {% endfor %}
+</div>
+
+
+{% endblock %}

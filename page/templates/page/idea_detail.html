@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<div> Idea Detail </div>
+<div> 아이디어 세부내용 페이지 입니다. 당신이 구현하려 한 아이디어들을 자세히 살펴보세요. </div>
+<div>
+    <div class="idea_detail_left">
+        <img src="{{ idea.image.url }}" alt="" style="max-width: 100%;"><br/>
+    </div>
+
+    <div class="idea_detail_right">
+        {{ idea.title }} <br>
+
+        <p>1)아이디어 관심도:
+            {{ idea.interest }}
+        </p>
+        <br>
+
+        <p>2)예상 개발 툴:
+            <a href="">{{ idea.devtool }}</a>
+        </p>
+        <br>
+
+        <p>3)아이디어 설명:
+            {{ idea.content }}
+        </p>
+    </div>
+</div>
+
+<div>
+    <form action="{% url 'page:idea_delete' pk=idea.pk %}" method="POST">
+        {% csrf_token %}
+        <input type="submit" value="삭제">
+    </form>
+    <a href="{% url 'page:idea_list' %}"><button>목록</button></a>
+    <a href="{% url 'page:idea_update' pk=idea.pk %}"><button>수정</button></a>
+</div>
+
+
+
+{% endblock %}
